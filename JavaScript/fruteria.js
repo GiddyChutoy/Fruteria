@@ -2,6 +2,7 @@ var arrayFrutas = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var arrayNombres = ["Platano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana", "Pera", "Naranja", "Melocoton", "Kiwi", "Higo"]
 var dinero = 0;
 
+//Las siguientes funciones sumarán kg a cada fruta
 function sumarPlatanos() {
     arrayFrutas[0] = (++arrayFrutas[0]);
     dinero = dinero + 1;
@@ -66,6 +67,7 @@ function mostrarResumen() {
 
 }
 
+//Junta todo los datos que necesitamos
 function resumir() {
     let resumen = new Array();
     let final;
@@ -87,6 +89,7 @@ function resumir() {
 
 }
 
+//Esta función nos dará el resultado monetario final
 function precioGeneral() {
     pesoTotal = arrayFrutas[0] + arrayFrutas[1] + arrayFrutas[2] + arrayFrutas[3] + arrayFrutas[4] + arrayFrutas[5] + arrayFrutas[6] + arrayFrutas[7] + arrayFrutas[8] + arrayFrutas[9] + arrayFrutas[10];
     return "\n\nPrecio total: " + dinero + " €\nPrecio medio: " + dinero / pesoTotal + " €/Kg";
