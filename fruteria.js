@@ -81,18 +81,35 @@ function sumarHigos() {
 
 function mostrarResumen() {
     let textarea = document.getElementById("resumen");
-    let variable = document.createTextNode(resumir());
-    textarea.appendChild(variable);
+    let resumen = document.createTextNode(resumir());
+    let precioTotal = document.createTextNode(precioGeneral());
+    textarea.appendChild(resumen);
+    textarea.appendChild(precioTotal);
+
 }
 
 function resumir() {
     let resumen = new Array();
     let final;
     for (i = 0; i < arrayNombres.length; i++) {
-        resumen[i] = arrayNombres[i] + " ------ " + arrayFrutas[i]+ "Kg";
+        resumen[i] = arrayNombres[i] + " ------ " + arrayFrutas[i] + "Kg";
+        resumen.sort(function (elem1, elem2) {
+            if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase()) {
+                return -1;
+            }
+            if (elem1.toLocaleLowerCase() < elem2.toLocaleLowerCase()) {
+                return +1;
+            }
+            return 0;
+        });
         final = resumen.join("\n");
     }
 
     return final;
 
+}
+
+function precioGeneral() {
+    pesoTotal = arrayFrutas[0] + arrayFrutas[1] + arrayFrutas[2] + arrayFrutas[3] + arrayFrutas[4] + arrayFrutas[5] + arrayFrutas[6] + arrayFrutas[7] + arrayFrutas[8] + arrayFrutas[9] + arrayFrutas[10];
+    return "\n\nPrecio total: " + dinero + " €\nPrecio medio: " + dinero / pesoTotal + " €/Kg";
 }
