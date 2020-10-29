@@ -94,3 +94,32 @@ function precioGeneral() {
     pesoTotal = arrayFrutas[0] + arrayFrutas[1] + arrayFrutas[2] + arrayFrutas[3] + arrayFrutas[4] + arrayFrutas[5] + arrayFrutas[6] + arrayFrutas[7] + arrayFrutas[8] + arrayFrutas[9] + arrayFrutas[10];
     return "\n\nPrecio total: " + dinero + " €\nPrecio medio: " + dinero / pesoTotal + " €/Kg";
 }
+
+//Aquí van las clases de las frutas de temporada y la clase padre fruta
+
+//Esta es la clase padre
+class fruta{
+    constructor(nombre, kilos){
+        this.nombre = nombre;
+        this.kilos = kilos;
+    }
+}
+
+//Esta es la clase hija "verano" que tendrá nuevas propiedades
+class verano extends fruta{
+    constructor(nombre, kilos, proximidad, region){
+        this.nombre = nombre;
+        this.kilos = kilos;
+        this.proximidad = proximidad;
+        this.region = region;
+    }
+}
+
+//Esta es la clase hija "invierno" que tendrá una nueva propiedad
+class invierno extends fruta{ 
+    constructor(nombre, kilos, nevera){
+        this.nombre = nombre;
+        this.kilos = kilos;
+        this.nevera = nevera;
+    }
+}
