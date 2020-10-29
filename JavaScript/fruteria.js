@@ -1,61 +1,12 @@
-var arrayFrutas = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var arrayFrutas = ["", "", "", "", "", "", "", "", "", "", ""];
 var arrayNombres = ["Platano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana", "Pera", "Naranja", "Melocoton", "Kiwi", "Higo"]
 var dinero = 0;
 
 //Las siguientes funciones sumarán kg a cada fruta
-function sumarPlatanos() {
-    arrayFrutas[0] = (++arrayFrutas[0]);
-    dinero = dinero + 1;
-}
-
-function sumarCerezas() {
-    arrayFrutas[1] = (++arrayFrutas[1]);
-    dinero = dinero + 0.70;
-}
-
-function sumarUvas() {
-    arrayFrutas[2] = (++arrayFrutas[2]);
-    dinero = dinero + 0.60;
-}
-
-function sumarPiña() {
-    arrayFrutas[3] = (++arrayFrutas[3]);
-    dinero = dinero + 0.90;
-}
-
-function sumarParaguaya() {
-    arrayFrutas[4] = (++arrayFrutas[4]);
-    dinero = dinero + 2.30;
-}
-
-function sumarManzana() {
-    arrayFrutas[5] = (++arrayFrutas[5]);
-    dinero = dinero + 0.80;
-}
-
-function sumarPera() {
-    arrayFrutas[6] = (++arrayFrutas[6]);
-    dinero = dinero + 1.80;
-}
-
-function sumarNaranja() {
-    arrayFrutas[7] = (++arrayFrutas[7]);
-    dinero = dinero + 1.70;
-}
-
-function sumarMelocoton() {
-    arrayFrutas[8] = (++arrayFrutas[8]);
-    dinero = dinero + 1.30;
-}
-
-function sumarKiwi() {
-    arrayFrutas[9] = (++arrayFrutas[9]);
-    dinero = dinero + 1.40;
-}
-
-function sumarHigos() {
-    arrayFrutas[10] = (++arrayFrutas[10]);
-    dinero = dinero + 1.50;
+function sumar(fruta) {
+    kilos = prompt("¿Cuántos kilos quieres de esta fruta?")
+    arrayFrutas[fruta] = (arrayFrutas[fruta] + kilos);
+    dinero = dinero + (kilos*document.getElementById(fruta).getAttribute("id"));
 }
 
 function mostrarResumen() {
