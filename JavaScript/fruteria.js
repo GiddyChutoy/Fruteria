@@ -1,7 +1,6 @@
 //var arrayFrutas = ["", "", "", "", "", "", "", "", "", "", ""];
 //var arrayNombres = ["Plátano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana", "Pera", "Naranja", "Melocotón", "Kiwi", "Higo"]
 //var arrayPrecios = [1, 0.70, 0.60, 0.90, 2.30, 0.80, 1.80, 1.70, 1.30, 1.40, 1.50]
-var dinero = 0;
 
 //Aquí van las clases de las frutas de temporada y la clase padre fruta
 
@@ -105,7 +104,7 @@ function resumir() {
     let resumen = new Array();
     let final;
     for (i = 0; i < arrayNombres.length; i++) {
-        resumen[i] = arrayNombres[i] + " ------ " + arrayFrutas[i] + "Kg" + " ------ " + Number(arrayPrecios[i]).toFixed(2) + "€ " + " ------ " + Number(arrayPrecios[i] * arrayFrutas[i]).toFixed(2) + "€";
+        resumen[i] = arrayObjetos[i].nombre + " ------ " + arrayObjetos[i].kilos + "Kg" + " ------ " + Number(arrayObjetos[i].precio).toFixed(2) + "€ " + " ------ " + Number(arrayObjetos[i].precio * arrayObjetos[i].kilos).toFixed(2) + "€";
         resumen.sort(function(elem1, elem2) {
             if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase()) {
                 return -1;
@@ -124,6 +123,15 @@ function resumir() {
 
 //Esta función nos dará el resultado monetario final
 function precioGeneral() {
-    pesoTotal = arrayFrutas[0] + arrayFrutas[1] + arrayFrutas[2] + arrayFrutas[3] + arrayFrutas[4] + arrayFrutas[5] + arrayFrutas[6] + arrayFrutas[7] + arrayFrutas[8] + arrayFrutas[9] + arrayFrutas[10];
-    return "\n\nPrecio total: " + Number(Math.floor(dinero)).toFixed(2) + " €\nPrecio medio: " + Number(dinero / pesoTotal).toFixed(3) + " €/Kg";
+    pesoTotal = 0;
+    for (i = 0; i < arrayObjetos.length; i++) {
+        pesoTotal = pesoTotal + arrayObjetos[i].kilos;
+    }
+
+    precioTotal = 0;
+    for (i = 0; i < arrayObjetos.length; i++) {
+        precioTotal = precioTotal + arrayObjetos[i].precio;
+    }
+
+    return "\n\nPrecio total: " + Number(Math.floor(precioTotal)).toFixed(2) + " €\nPrecio medio: " + Number(precioTotal / pesoTotal).toFixed(3) + " €/Kg";
 }
