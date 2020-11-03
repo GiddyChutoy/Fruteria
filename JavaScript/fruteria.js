@@ -3,35 +3,46 @@ var arrayNombres = ["Plátano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana"
 var arrayPrecios = [1, 0.70, 0.60, 0.90, 2.30, 0.80, 1.80, 1.70, 1.30, 1.40, 1.50]
 var dinero = 0;
 
-//Las siguientes funciones sumarán kg a cada fruta
-function quefruta(especie){
-    let precio;
-    if(especie == 0){
-        precio = 1;
-    }else if(especie == 5){
-        precio = 0.80;
-    }else if(especie == 2){
-        precio = 0.60;
-    }else if(especie == 8){
-        precio = 1.30;
-    }else if(especie == 6){
-        precio = 1.80;
-    }else if(especie == 4){
-        precio = 2.30;
-    }else if(especie == 3){
-        precio = 0.90;
-    }else if(especie == 9){
-        precio = 1.40;
-    }else if(especie == 1){
-        precio = 0.70;
-    }else if(especie == 10){
-        precio = 1.50;
-    }else if(especie == 7){
-        precio = 1.70;
-    }
+//Aquí van las clases de las frutas de temporada y la clase padre fruta
 
-    return precio;
+//Esta es la clase padre
+class fruta {
+    constructor(nombre, kilos, precio) {
+        this.nombre = nombre;
+        this.kilos = kilos;
+        this.precio = precio;
+    }
 }
+
+//Esta es la clase hija "verano" que tendrá nuevas propiedades
+class verano extends fruta {
+    constructor(nombre, kilos, precio, proximidad, region) {
+        super(nombre, kilos, precio);
+        this.proximidad = proximidad;
+        this.region = region;
+    }
+}
+
+//Esta es la clase hija "invierno" que tendrá una nueva propiedad
+class invierno extends fruta {
+    constructor(nombre, kilos, precio, nevera) {
+        super(nombre, kilos, precio);
+        this.nevera = nevera;
+    }
+}
+
+//Objetos fruta
+var platano = new verano("Plátano", 0, 1, "lejanía", "Canarias");
+var manzana = new invierno("Manzana", 0, 0.8, "fuera");
+var uvas = new verano("Uvas", 0, 0.60, "cercanía", "Salamanca");
+var melocoton = new verano("Melocotón", 0, 1.30, "lejanía", "Barcelona");
+var pera = new verano("Pera", 0, 1.8, "cercanía", "Zamora");
+var paraguaya = new verano("Paraguaya", 0, 2.3, "Lejanía", "Paraguay");
+var pina = new verano("Piña", 0, 0.9, "lejanía", "Venezuela");
+var kiwi = new verano("Kiwi", 0, 1.4, "lejanía", "Australia");
+var cereza = new verano("Cereza", 0, 0.7, "cercanía", "Badajoz");
+var higo = new verano("Higo", 0, 1.5, "cercanía", "Salamanca");
+var naranja = new verano("Naranja", 0, 1.7, "Cercanía", "Valladolid");
 
 function sumar(fruta) {
     kilos = prompt("¿Cuántos kilos quieres de esta fruta?")
@@ -56,7 +67,7 @@ function resumir() {
     let final;
     for (i = 0; i < arrayNombres.length; i++) {
         resumen[i] = arrayNombres[i] + " ------ " + arrayFrutas[i] + "Kg" + " ------ " + Number(arrayPrecios[i]).toFixed(2) + "€ " + " ------ " + Number(arrayPrecios[i] * arrayFrutas[i]).toFixed(2) + "€";
-        resumen.sort(function (elem1, elem2) {
+        resumen.sort(function(elem1, elem2) {
             if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase()) {
                 return -1;
             }
@@ -76,38 +87,4 @@ function resumir() {
 function precioGeneral() {
     pesoTotal = arrayFrutas[0] + arrayFrutas[1] + arrayFrutas[2] + arrayFrutas[3] + arrayFrutas[4] + arrayFrutas[5] + arrayFrutas[6] + arrayFrutas[7] + arrayFrutas[8] + arrayFrutas[9] + arrayFrutas[10];
     return "\n\nPrecio total: " + Number(Math.floor(dinero)).toFixed(2) + " €\nPrecio medio: " + Number(dinero / pesoTotal).toFixed(3) + " €/Kg";
-}
-
-//Aquí van las clases de las frutas de temporada y la clase padre fruta
-
-//Función que generará los tipos de fruta
-function crearTipoFruta(){
-    
-}
-
-//Esta es la clase padre
-class fruta{
-    constructor(nombre, kilos){
-        this.nombre = nombre;
-        this.kilos = kilos;
-    }
-}
-
-//Esta es la clase hija "verano" que tendrá nuevas propiedades
-class verano extends fruta{
-    constructor(nombre, kilos, proximidad, region){
-        this.nombre = nombre;
-        this.kilos = kilos;
-        this.proximidad = proximidad;
-        this.region = region;
-    }
-}
-
-//Esta es la clase hija "invierno" que tendrá una nueva propiedad
-class invierno extends fruta{ 
-    constructor(nombre, kilos, nevera){
-        this.nombre = nombre;
-        this.kilos = kilos;
-        this.nevera = nevera;
-    }
 }
