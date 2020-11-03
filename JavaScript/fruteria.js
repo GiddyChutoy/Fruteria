@@ -1,6 +1,6 @@
-var arrayFrutas = ["", "", "", "", "", "", "", "", "", "", ""];
-var arrayNombres = ["Plátano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana", "Pera", "Naranja", "Melocotón", "Kiwi", "Higo"]
-var arrayPrecios = [1, 0.70, 0.60, 0.90, 2.30, 0.80, 1.80, 1.70, 1.30, 1.40, 1.50]
+//var arrayFrutas = ["", "", "", "", "", "", "", "", "", "", ""];
+//var arrayNombres = ["Plátano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana", "Pera", "Naranja", "Melocotón", "Kiwi", "Higo"]
+//var arrayPrecios = [1, 0.70, 0.60, 0.90, 2.30, 0.80, 1.80, 1.70, 1.30, 1.40, 1.50]
 var dinero = 0;
 
 //Aquí van las clases de las frutas de temporada y la clase padre fruta
@@ -44,10 +44,49 @@ var cereza = new verano("Cereza", 0, 0.7, "cercanía", "Badajoz");
 var higo = new verano("Higo", 0, 1.5, "cercanía", "Salamanca");
 var naranja = new verano("Naranja", 0, 1.7, "Cercanía", "Valladolid");
 
+//Array Objetos Fruta
+var arrayObjetos = [platano, manzana, uvas, melocoton, pera, paraguaya, pina, kiwi, cereza, higo, naranja];
+
+//Sumar los kilos de los objetos cuando se pulsa la imagen de la fruta
 function sumar(fruta) {
-    kilos = prompt("¿Cuántos kilos quieres de esta fruta?")
-    arrayFrutas[fruta] = (arrayFrutas[fruta] + kilos);
-    dinero = dinero + (kilos * quefruta(fruta));
+    let kilos = prompt("¿cuántos Kilos quieres?");
+    kilos = Number(kilos);
+
+    switch (fruta) {
+        case "platano":
+            arrayObjetos[0] = arrayObjetos[0] + kilos;
+            break;
+        case "manzana":
+            arrayObjetos[1] = arrayObjetos[1] + kilos;
+            break;
+        case "uvas":
+            arrayObjetos[2] = arrayObjetos[2] + kilos;
+            break;
+        case "melocoton":
+            arrayObjetos[3] = arrayObjetos[3] + kilos;
+            break;
+        case "pera":
+            arrayObjetos[4] = arrayObjetos[4] + kilos;
+            break;
+        case "paraguaya":
+            arrayObjetos[5] = arrayObjetos[5] + kilos;
+            break;
+        case "piña":
+            arrayObjetos[6] = arrayObjetos[6] + kilos;
+            break;
+        case "kiwi":
+            arrayObjetos[7] = arrayObjetos[7] + kilos;
+            break;
+        case "cerezas":
+            arrayObjetos[8] = arrayObjetos[8] + kilos;
+            break;
+        case "higo":
+            arrayObjetos[9] = arrayObjetos[9] + kilos;
+            break;
+        case "naranja":
+            arrayObjetos[10] = arrayObjetos[10] + kilos;
+            break;
+    }
 }
 
 function mostrarResumen() {
