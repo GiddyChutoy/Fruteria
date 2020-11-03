@@ -30,18 +30,37 @@ class invierno extends fruta {
     }
 }
 
+//Funciones para las frutas de verano e invierno
+function getVerano(){
+    let ventana = window.open("", "verano", "width=500px")
+    for(i = 0; i < arrayObjetos.length; i++){
+        if(arrayObjetos[i].kilos > 0 && arrayObjetos[i].proximidad){
+            ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son fruta de verano, de " + arrayObjetos[i].proximidad + " y están recogidas en " + arrayObjetos[i].region + ".\n\n")
+        }
+    }
+}
+
+function getInvierno(){
+    let ventana = window.open("", "verano", "width=500px")
+    for(i = 0; i < arrayObjetos.length; i++){
+        if(arrayObjetos[i].kilos > 0 && arrayObjetos[i].nevera){
+            ventana.document.write("Las/Los " + arrayObjetos[i].nombre  + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.\n\n")
+        }
+    }
+}
+
 //Objetos fruta
 var platano = new verano("Plátano", 0, 1, "lejanía", "Canarias");
 var manzana = new invierno("Manzana", 0, 0.8, "fuera");
-var uvas = new verano("Uvas", 0, 0.60, "cercanía", "Salamanca");
+var uvas = new invierno("Uvas", 0, 0.60, "dentro");
 var melocoton = new verano("Melocotón", 0, 1.30, "lejanía", "Barcelona");
-var pera = new verano("Pera", 0, 1.8, "cercanía", "Zamora");
+var pera = new invierno("Pera", 0, 1.8, "dentro");
 var paraguaya = new verano("Paraguaya", 0, 2.3, "Lejanía", "Paraguay");
 var pina = new verano("Piña", 0, 0.9, "lejanía", "Venezuela");
 var kiwi = new verano("Kiwi", 0, 1.4, "lejanía", "Australia");
 var cereza = new verano("Cereza", 0, 0.7, "cercanía", "Badajoz");
 var higo = new verano("Higo", 0, 1.5, "cercanía", "Salamanca");
-var naranja = new verano("Naranja", 0, 1.7, "Cercanía", "Valladolid");
+var naranja = new invierno("Naranja", 0, 1.7, "fuera");
 
 //Array Objetos Fruta
 var arrayObjetos = [platano, manzana, uvas, melocoton, pera, paraguaya, pina, kiwi, cereza, higo, naranja];
@@ -53,37 +72,37 @@ function sumar(fruta) {
 
     switch (fruta) {
         case "platano":
-            arrayObjetos[0] = arrayObjetos[0] + kilos;
+            arrayObjetos[0].kilos = arrayObjetos[0].kilos + kilos;
             break;
         case "manzana":
-            arrayObjetos[1] = arrayObjetos[1] + kilos;
+            arrayObjetos[1].kilos = arrayObjetos[1].kilos + kilos;
             break;
         case "uvas":
-            arrayObjetos[2] = arrayObjetos[2] + kilos;
+            arrayObjetos[2].kilos = arrayObjetos[2].kilos + kilos;
             break;
         case "melocoton":
-            arrayObjetos[3] = arrayObjetos[3] + kilos;
+            arrayObjetos[3].kilos = arrayObjetos[3].kilos + kilos;
             break;
         case "pera":
-            arrayObjetos[4] = arrayObjetos[4] + kilos;
+            arrayObjetos[4].kilos = arrayObjetos[4].kilos + kilos;
             break;
         case "paraguaya":
-            arrayObjetos[5] = arrayObjetos[5] + kilos;
+            arrayObjetos[5].kilos = arrayObjetos[5].kilos + kilos;
             break;
         case "piña":
-            arrayObjetos[6] = arrayObjetos[6] + kilos;
+            arrayObjetos[6].kilos = arrayObjetos[6].kilos + kilos;
             break;
         case "kiwi":
-            arrayObjetos[7] = arrayObjetos[7] + kilos;
+            arrayObjetos[7].kilos = arrayObjetos[7].kilos + kilos;
             break;
         case "cerezas":
-            arrayObjetos[8] = arrayObjetos[8] + kilos;
+            arrayObjetos[8].kilos = arrayObjetos[8].kilos + kilos;
             break;
         case "higo":
-            arrayObjetos[9] = arrayObjetos[9] + kilos;
+            arrayObjetos[9].kilos = arrayObjetos[9].kilos + kilos;
             break;
         case "naranja":
-            arrayObjetos[10] = arrayObjetos[10] + kilos;
+            arrayObjetos[10].kilos = arrayObjetos[10].kilos + kilos;
             break;
     }
 }
@@ -103,7 +122,7 @@ function mostrarResumen() {
 function resumir() {
     let resumen = new Array();
     let final;
-    for (i = 0; i < arrayNombres.length; i++) {
+    for (i = 0; i < arrayObjetos.length; i++) {
         resumen[i] = arrayObjetos[i].nombre + " ------ " + arrayObjetos[i].kilos + "Kg" + " ------ " + Number(arrayObjetos[i].precio).toFixed(2) + "€ " + " ------ " + Number(arrayObjetos[i].precio * arrayObjetos[i].kilos).toFixed(2) + "€";
         resumen.sort(function(elem1, elem2) {
             if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase()) {
@@ -130,7 +149,9 @@ function precioGeneral() {
 
     precioTotal = 0;
     for (i = 0; i < arrayObjetos.length; i++) {
-        precioTotal = precioTotal + arrayObjetos[i].precio;
+        if(arrayObjetos[i].kilos > 0){
+            precioTotal = precioTotal + (arrayObjetos[i].precio * arrayObjetos[i].kilos);
+        }
     }
 
     return "\n\nPrecio total: " + Number(Math.floor(precioTotal)).toFixed(2) + " €\nPrecio medio: " + Number(precioTotal / pesoTotal).toFixed(3) + " €/Kg";
