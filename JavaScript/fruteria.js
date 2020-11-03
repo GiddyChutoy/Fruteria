@@ -81,7 +81,9 @@ function precioGeneral() {
 //Aquí van las clases de las frutas de temporada y la clase padre fruta
 
 //Función que generará los tipos de fruta
-
+function crearTipoFruta(){
+    
+}
 
 //Esta es la clase padre
 class fruta{
