@@ -35,7 +35,7 @@ function getVerano(){
     let ventana = window.open("", "verano", "width=500px")
     for(i = 0; i < arrayObjetos.length; i++){
         if(arrayObjetos[i].kilos > 0 && arrayObjetos[i].proximidad){
-            ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son fruta de verano, de " + arrayObjetos[i].proximidad + " y están recogidas en " + arrayObjetos[i].region + ".\n\n")
+            ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son fruta de verano, de " + arrayObjetos[i].proximidad + " y están recogidas en " + arrayObjetos[i].region + ".<br>")
         }
     }
 }
@@ -44,7 +44,7 @@ function getInvierno(){
     let ventana = window.open("", "verano", "width=500px")
     for(i = 0; i < arrayObjetos.length; i++){
         if(arrayObjetos[i].kilos > 0 && arrayObjetos[i].nevera){
-            ventana.document.write("Las/Los " + arrayObjetos[i].nombre  + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.\n\n")
+            ventana.document.write("Las/Los " + arrayObjetos[i].nombre  + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.<br>")
         }
     }
 }
@@ -64,6 +64,22 @@ var naranja = new invierno("Naranja", 0, 1.7, "fuera");
 
 //Array Objetos Fruta
 var arrayObjetos = [platano, manzana, uvas, melocoton, pera, paraguaya, pina, kiwi, cereza, higo, naranja];
+
+//Funcion que borrará todo después de que pasen 10 segundos al pulsa el boton de resumen de la compra
+function borrar(){
+    setTimeout(contenido, 10000);
+}
+
+function contenido() {
+    let textarea = document.getElementById("resumen");
+    textarea.innerHTML = "";
+    let compra = document.getElementById("compra");
+    compra.innerHTML = "";
+
+    for(i = 0; i < arrayObjetos.length; i++){
+        arrayObjetos[i].kilos = 0;
+    }
+}
 
 //Sumar los kilos de los objetos cuando se pulsa la imagen de la fruta
 //Ademas se encarga de señalar las veces que has repetido la misma fruta
