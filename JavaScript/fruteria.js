@@ -71,7 +71,14 @@ function sumar(fruta) {
     //let kilos = prompt("¿cuántos Kilos quieres?");
     let arrayParrafos = document.getElementById("compra").getElementsByTagName("p");
     let kilos = document.getElementById(fruta).value
-    kilos = Number(kilos);
+    kilos = Number(kilos)
+    let copia = kilos;
+
+    copia = Math.round(copia)
+
+    if(kilos !== copia){
+        return alert("Debes introducir un número entero");
+    }
 
     switch (fruta) {
         case "platano":
