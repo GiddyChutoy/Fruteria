@@ -7,5 +7,12 @@ img{
 
 #contenedor{
     float: left;
+    width: 75%;
+}
+
+#compra{
+    width: 25%;
+    float: right;
+    height: 100%;
 }
 

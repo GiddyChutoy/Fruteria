@@ -66,43 +66,178 @@ var naranja = new invierno("Naranja", 0, 1.7, "fuera");
 var arrayObjetos = [platano, manzana, uvas, melocoton, pera, paraguaya, pina, kiwi, cereza, higo, naranja];
 
 //Sumar los kilos de los objetos cuando se pulsa la imagen de la fruta
+//Ademas se encarga de señalar las veces que has repetido la misma fruta
 function sumar(fruta) {
-    let kilos = prompt("¿cuántos Kilos quieres?");
+    //let kilos = prompt("¿cuántos Kilos quieres?");
+    let arrayParrafos = document.getElementById("compra").getElementsByTagName("p");
+    let kilos = document.getElementById(fruta).value
     kilos = Number(kilos);
 
     switch (fruta) {
         case "platano":
             arrayObjetos[0].kilos = arrayObjetos[0].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='platano'>" + platano.nombre + " ---- " + platano.kilos + "</p>"
+
+            for(i = 0; i < arrayParrafos.length; i++){
+               arrayParrafos[i].removeAttribute("style");
+            }
+
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "platano"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "manzana":
             arrayObjetos[1].kilos = arrayObjetos[1].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='manzana'>" + manzana.nombre + " ---- " + manzana.kilos + "</p>"
+
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "manzana"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "uvas":
             arrayObjetos[2].kilos = arrayObjetos[2].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='uvas'>" + uvas.nombre + " ---- " + uvas.kilos + "</p>"
+
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+             
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "uvas"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "melocoton":
             arrayObjetos[3].kilos = arrayObjetos[3].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='melocoton'>" + melocoton.nombre + " ---- " + melocoton.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "melocoton"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "pera":
             arrayObjetos[4].kilos = arrayObjetos[4].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='pera'>" + pera.nombre + " ---- " + pera.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "pera"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "paraguaya":
             arrayObjetos[5].kilos = arrayObjetos[5].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='paraguaya'>" + paraguaya.nombre + " ---- " + paraguaya.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "paraguaya"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "piña":
             arrayObjetos[6].kilos = arrayObjetos[6].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='piña'>" + piña.nombre + " ---- " + piña.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "piña"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "kiwi":
             arrayObjetos[7].kilos = arrayObjetos[7].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='kiwi'>" + kiwi.nombre + " ---- " + kiwi.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "kiwi"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "cerezas":
             arrayObjetos[8].kilos = arrayObjetos[8].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='cerezas'>" + cerezas.nombre + " ---- " + cerezas.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "cerezas"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "higo":
             arrayObjetos[9].kilos = arrayObjetos[9].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='higo'>" + higo.nombre + " ---- " + higo.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "higo"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
         case "naranja":
             arrayObjetos[10].kilos = arrayObjetos[10].kilos + kilos;
+            document.getElementById("compra").innerHTML += "<p name='naranja'>" + naranja.nombre + " ---- " + naranja.kilos + "</p>"
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                arrayParrafos[i].removeAttribute("style");
+            }
+            
+            for(i = 0; i < arrayParrafos.length; i++){
+                if(arrayParrafos[i].getAttribute("name") == "naranja"){
+                    arrayParrafos[i].style.backgroundColor = "green"
+                }
+            }
+
             break;
     }
 }
