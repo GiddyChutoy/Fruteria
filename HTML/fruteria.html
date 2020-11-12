@@ -10,92 +10,114 @@
 </head>
 
 <body>
-    <div id="contenedor">
-        <h1>Fruteria</h1>
-        <div>
-            <h3>Platano</h3>
-            <img src="..\imagenes\platanos.jpg" alt="platano"  onclick="sumar('platano');">
-            <p>1 Kg: <strong>1€</strong></p>
-            <input type="text" id="platano">
-        </div>
-        <br>
-        <div>
-            <h3>Manzana</h3>
-            <img src="..\imagenes\manzana.jpg" alt="manzana"  onclick="sumar('manzana')">
-            <p>1 Kg: <strong>0,80€</strong></p>
-            <input type="text" id="manzana">
-        </div>
-        <br>
-        <div>
-            <h3>Uvas</h3>
-            <img src="..\imagenes\uvas.jpg" alt="uvas"  onclick="sumar('uvas')">
-            <p>1 Kg: <strong>0,60€</strong></p>
-            <input type="text" id="uvas">
-        </div>
-        <br>
-        <div>
-            <h3>Melocotón</h3>
-            <img src="..\imagenes\melocoton.jpg" alt="melocoton"  onclick="sumar('melocoton')">
-            <p>1 Kg: <strong>1,30€</strong></p>
-            <input type="text" id="melocoton">
-        </div>
-        <br>
-        <div>
-            <h3>Pera</h3>
-            <img src="..\imagenes\pera.jpg" alt="pera"  onclick="sumar('pera')">
-            <p>1 Kg: <strong>1,80€</strong></p>
-            <input type="text" id="pera">
-        </div>
-        <br>
-        <div>
-            <h3>Paraguaya</h3>
-            <img src="..\imagenes\paraguaya.jpg" alt="paraguaya"  onclick="sumar('paraguaya')">
-            <p>1 Kg: <strong>2,30€</strong></p>
-            <input type="text" id="paraguaya">
-        </div>
-        <br>
-        <div>
-            <h3>Piña</h3>
-            <img src="..\imagenes\piña.jpg" alt="piña"  onclick="sumar('piña')">
-            <p>1 Kg: <strong>0,90€</strong></p>
-            <input type="text" id="piña">
-        </div>
-        <br>
-        <div>
-            <h3>Kiwi</h3>
-            <img src="..\imagenes\kiwi.jpg" alt="kiwi"  onclick="sumar('kiwi')">
-            <p>1 Kg: <strong>1,40€</strong></p>
-            <input type="text" id="kiwi">
-        </div>
-        <br>
-        <div>
-            <h3>Cereza</h3>
-            <img src="..\imagenes\cerezas.jpg" alt="cerezas"  onclick="sumar('cerezas')">
-            <p>1 Kg: <strong>0,70€</strong></p>
-            <input type="text" id="cerezas">
-        </div>
-        <br>
-        <div>
-            <h3>Higo</h3>
-            <img src="..\imagenes\higo.jpg" alt="higo"  onclick="sumar('higo')">
-            <p>1 Kg: <strong>1,50€</strong></p>
-            <input type="text" id="higo">
-        </div>
-        <br>
-        <div>
-            <h3>Naranja</h3>
-            <img src="..\imagenes\naranja.jpg" alt="naranja"  onclick="sumar('naranja')">
-            <p>1 Kg: <strong>1,70€</strong></p>
-            <input type="text" id="naranja">
-        </div>
-        <br>
-        <textarea name="resumen" id="resumen" cols="100" rows="30"></textarea>
-        <br>
-        <button onclick="mostrarResumen(); getVerano(); getInvierno(); borrar();" name="resumen" id="resumen">Finalizar
+    <div id="elPadre">
+        <div id="contenedor">
+            <h1>Fruteria</h1>
+            <div class="fruta">
+                <h3>Platano</h3>
+                <img src="..\imagenes\platanos.jpg" alt="platano" onclick="sumar('platano');">
+                <p>1 Kg: <strong>1€</strong></p>
+                <input type="text" id="platano">
+            </div>
+
+            <div class="fruta">
+                <h3>Manzana</h3>
+                <img src="..\imagenes\manzana.jpg" alt="manzana" onclick="sumar('manzana')">
+                <p>1 Kg: <strong>0,80€</strong></p>
+                <input type="text" id="manzana">
+            </div>
+
+            <div class="fruta">
+                <h3>Uvas</h3>
+                <img src="..\imagenes\uvas.jpg" alt="uvas" onclick="sumar('uvas')">
+                <p>1 Kg: <strong>0,60€</strong></p>
+                <input type="text" id="uvas">
+            </div>
+
+            <div class="fruta">
+                <h3>Melocotón</h3>
+                <img src="..\imagenes\melocoton.jpg" alt="melocoton" onclick="sumar('melocoton')">
+                <p>1 Kg: <strong>1,30€</strong></p>
+                <input type="text" id="melocoton">
+            </div>
+
+            <div class="fruta">
+                <h3>Pera</h3>
+                <img src="..\imagenes\pera.jpg" alt="pera" onclick="sumar('pera')">
+                <p>1 Kg: <strong>1,80€</strong></p>
+                <input type="text" id="pera">
+            </div>
+
+            <div class="fruta">
+                <h3>Paraguaya</h3>
+                <img src="..\imagenes\paraguaya.jpg" alt="paraguaya" onclick="sumar('paraguaya')">
+                <p>1 Kg: <strong>2,30€</strong></p>
+                <input type="text" id="paraguaya">
+            </div>
+
+            <div class="fruta">
+                <h3>Piña</h3>
+                <img src="..\imagenes\piña.jpg" alt="piña" onclick="sumar('piña')">
+                <p>1 Kg: <strong>0,90€</strong></p>
+                <input type="text" id="piña">
+            </div>
+
+            <div class="fruta">
+                <h3>Kiwi</h3>
+                <img src="..\imagenes\kiwi.jpg" alt="kiwi" onclick="sumar('kiwi')">
+                <p>1 Kg: <strong>1,40€</strong></p>
+                <input type="text" id="kiwi">
+            </div>
+
+            <div class="fruta">
+                <h3>Cereza</h3>
+                <img src="..\imagenes\cerezas.jpg" alt="cerezas" onclick="sumar('cerezas')">
+                <p>1 Kg: <strong>0,70€</strong></p>
+                <input type="text" id="cerezas">
+            </div>
+
+            <div class="fruta">
+                <h3>Higo</h3>
+                <img src="..\imagenes\higo.jpg" alt="higo" onclick="sumar('higo')">
+                <p>1 Kg: <strong>1,50€</strong></p>
+                <input type="text" id="higo">
+            </div>
+
+            <div class="fruta">
+                <h3>Naranja</h3>
+                <img src="..\imagenes\naranja.jpg" alt="naranja" onclick="sumar('naranja')">
+                <p>1 Kg: <strong>1,70€</strong></p>
+                <input type="text" id="naranja">
+            </div>
+            <br><br>
+            <hr>
+            <br>
+
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Datos</legend>
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" name="nombre">
+
+                    <label for="apellidos">Apellidos: </label>
+                    <input type="text" name="apellidos">
+
+                    <br><br>
+
+                    <label for="direccion">Dirección: </label>
+                    <input type="text" name="direccion">
+
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
+                </fieldset>
+            </form>
+
+            <button onclick="mostrarResumen(); getVerano(); getInvierno(); borrar();" name="resumen" id="resumen">Finalizar
             pedido</button>
-    </div>
-    <div id="compra">
-        
+        </div>
+        <div id="compra">
+
+        </div>
     </div>
 </body>
 

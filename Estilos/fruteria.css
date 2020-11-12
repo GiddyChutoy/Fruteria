@@ -1,18 +1,32 @@
-body{
-    text-align: center;
-}
-img{
-    width: 200px;
-}
+#elPadre {}
 
-#contenedor{
+#contenedor {
     float: left;
-    width: 75%;
+    text-align: center;
+    width: 73%;
 }
 
-#compra{
-    width: 25%;
+.fruta {
+    display: inline-block;
+}
+
+img {
+    width: 75px;
+}
+
+#compra {
     float: right;
-    height: 100%;
+    width: 25%;
 }
 
+fieldset {
+    padding: 20px;
+}
+
+fieldset input {
+    float: left;
+}
+
+fieldset label {
+    float: left;
+}
