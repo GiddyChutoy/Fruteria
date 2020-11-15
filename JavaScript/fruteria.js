@@ -81,6 +81,27 @@ function contenido() {
     }
 }
 
+//Función para borrar el formulario
+function borrarFormulario(){
+    let campos = document.getElementsByClassName("datos");
+    let radios = document.getElementsByClassName("radio");
+    for(i = 0; i < campos.length; i++){
+        campos[i].value = null;
+    }
+
+    for(y = 0; y < radios.length; y++){
+        radios[y].checked = false;
+    }
+}
+
+//Funcion que comprueba si existe tarjeta cliente
+
+//Función realizar pedido
+
+function realizarPedido(){
+   
+}
+
 //Sumar los kilos de los objetos cuando se pulsa la imagen de la fruta
 //Ademas se encarga de señalar las veces que has repetido la misma fruta
 function sumar(fruta) {

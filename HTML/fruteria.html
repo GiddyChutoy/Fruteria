@@ -93,27 +93,45 @@
             <hr>
             <br>
 
-            <form action="" method="post">
+            <form action="" method="post" target="_blank">
                 <fieldset>
                     <legend>Datos</legend>
                     <label for="nombre">Nombre: </label>
-                    <input type="text" name="nombre">
+                    <input type="text" name="nombre" class="datos">
 
                     <label for="apellidos">Apellidos: </label>
-                    <input type="text" name="apellidos">
+                    <input type="text" name="apellidos" class="datos">
 
                     <br><br>
 
                     <label for="direccion">Dirección: </label>
-                    <input type="text" name="direccion">
+                    <input type="text" name="direccion" class="datos">
 
                     <label for="email">Email: </label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="email" id="email" class="datos">
+
+                    <br><br>
+
+                    <label for="tarjeta">Pago con tarjeta: </label>
+                    <label for="tarjeta"> Sí</label> <input type="radio" name="tarjeta" class="radio">
+                    <label for="tarjeta"> No</label><input type="radio" name="tarjeta" class="radio">
+
+                    <br><br>
+
+                    <label for="tarjetacliente">Tarjeta cliente: </label>
+                    <label for="tarjetacliente">Sí</label><input type="radio" name="tarjetacliente" class="radio">
+                    <label for="tarjetacliente">No</label><input type="radio" name="tarjetacliente" class="radio">
+
+                    <br><br>
+
+                    <input type="submit" value="Realizar pedido" onclick="getVerano(); getInvierno(); borrar();">
+                    <input type="button" value="Borrar formulario" onclick="borrarFormulario()">
+
                 </fieldset>
             </form>
 
-            <button onclick="mostrarResumen(); getVerano(); getInvierno(); borrar();" name="resumen" id="resumen">Finalizar
-            pedido</button>
+            <!--<button onclick="mostrarResumen(); getVerano(); getInvierno(); borrar();" name="resumen" id="resumen">Finalizar
+            pedido</button>-->
         </div>
         <div id="compra">
 
