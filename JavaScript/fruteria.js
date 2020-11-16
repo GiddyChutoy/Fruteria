@@ -31,20 +31,20 @@ class invierno extends fruta {
 }
 
 //Funciones para las frutas de verano e invierno
-function getVerano(){
+function getVerano() {
     let ventana = window.open("", "verano", "width=500px")
-    for(i = 0; i < arrayObjetos.length; i++){
-        if(arrayObjetos[i].kilos > 0 && arrayObjetos[i].proximidad){
+    for (i = 0; i < arrayObjetos.length; i++) {
+        if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].proximidad) {
             ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son fruta de verano, de " + arrayObjetos[i].proximidad + " y están recogidas en " + arrayObjetos[i].region + ".<br>")
         }
     }
 }
 
-function getInvierno(){
+function getInvierno() {
     let ventana = window.open("", "verano", "width=500px")
-    for(i = 0; i < arrayObjetos.length; i++){
-        if(arrayObjetos[i].kilos > 0 && arrayObjetos[i].nevera){
-            ventana.document.write("Las/Los " + arrayObjetos[i].nombre  + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.<br>")
+    for (i = 0; i < arrayObjetos.length; i++) {
+        if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].nevera) {
+            ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.<br>")
         }
     }
 }
@@ -66,7 +66,7 @@ var naranja = new invierno("Naranja", 0, 1.7, "fuera");
 var arrayObjetos = [platano, manzana, uvas, melocoton, pera, paraguaya, pina, kiwi, cereza, higo, naranja];
 
 //Funcion que borrará todo después de que pasen 10 segundos al pulsa el boton de resumen de la compra
-function borrar(){
+function borrar() {
     setTimeout(contenido, 10000);
 }
 
@@ -76,20 +76,20 @@ function contenido() {
     let compra = document.getElementById("compra");
     compra.innerHTML = "";
 
-    for(i = 0; i < arrayObjetos.length; i++){
+    for (i = 0; i < arrayObjetos.length; i++) {
         arrayObjetos[i].kilos = 0;
     }
 }
 
 //Función para borrar el formulario
-function borrarFormulario(){
+function borrarFormulario() {
     let campos = document.getElementsByClassName("datos");
     let radios = document.getElementsByClassName("radio");
-    for(i = 0; i < campos.length; i++){
+    for (i = 0; i < campos.length; i++) {
         campos[i].value = null;
     }
 
-    for(y = 0; y < radios.length; y++){
+    for (y = 0; y < radios.length; y++) {
         radios[y].checked = false;
     }
 }
@@ -98,8 +98,8 @@ function borrarFormulario(){
 
 //Función realizar pedido
 
-function realizarPedido(){
-   
+function realizarPedido() {
+    window.open("/emergente.html", "pop-up", "width=500px height=300px");
 }
 
 //Sumar los kilos de los objetos cuando se pulsa la imagen de la fruta
@@ -113,7 +113,7 @@ function sumar(fruta) {
 
     copia = Math.round(copia)
 
-    if(kilos !== copia){
+    if (kilos !== copia) {
         return alert("Debes introducir un número entero");
     }
 
@@ -122,12 +122,12 @@ function sumar(fruta) {
             arrayObjetos[0].kilos = arrayObjetos[0].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='platano'>" + platano.nombre + " ---- " + platano.kilos + "</p>"
 
-            for(i = 0; i < arrayParrafos.length; i++){
-               arrayParrafos[i].removeAttribute("style");
+            for (i = 0; i < arrayParrafos.length; i++) {
+                arrayParrafos[i].removeAttribute("style");
             }
 
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "platano"){
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "platano") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -137,12 +137,12 @@ function sumar(fruta) {
             arrayObjetos[1].kilos = arrayObjetos[1].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='manzana'>" + manzana.nombre + " ---- " + manzana.kilos + "</p>"
 
-            for(i = 0; i < arrayParrafos.length; i++){
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
 
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "manzana"){
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "manzana") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -152,12 +152,12 @@ function sumar(fruta) {
             arrayObjetos[2].kilos = arrayObjetos[2].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='uvas'>" + uvas.nombre + " ---- " + uvas.kilos + "</p>"
 
-            for(i = 0; i < arrayParrafos.length; i++){
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-             
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "uvas"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "uvas") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -166,13 +166,13 @@ function sumar(fruta) {
         case "melocoton":
             arrayObjetos[3].kilos = arrayObjetos[3].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='melocoton'>" + melocoton.nombre + " ---- " + melocoton.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
 
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "melocoton"){
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "melocoton") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -181,13 +181,13 @@ function sumar(fruta) {
         case "pera":
             arrayObjetos[4].kilos = arrayObjetos[4].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='pera'>" + pera.nombre + " ---- " + pera.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-            
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "pera"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "pera") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -196,13 +196,13 @@ function sumar(fruta) {
         case "paraguaya":
             arrayObjetos[5].kilos = arrayObjetos[5].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='paraguaya'>" + paraguaya.nombre + " ---- " + paraguaya.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-            
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "paraguaya"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "paraguaya") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -211,13 +211,13 @@ function sumar(fruta) {
         case "piña":
             arrayObjetos[6].kilos = arrayObjetos[6].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='piña'>" + piña.nombre + " ---- " + piña.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-            
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "piña"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "piña") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -226,13 +226,13 @@ function sumar(fruta) {
         case "kiwi":
             arrayObjetos[7].kilos = arrayObjetos[7].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='kiwi'>" + kiwi.nombre + " ---- " + kiwi.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-            
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "kiwi"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "kiwi") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -241,13 +241,13 @@ function sumar(fruta) {
         case "cerezas":
             arrayObjetos[8].kilos = arrayObjetos[8].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='cerezas'>" + cerezas.nombre + " ---- " + cerezas.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-            
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "cerezas"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "cerezas") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -256,13 +256,13 @@ function sumar(fruta) {
         case "higo":
             arrayObjetos[9].kilos = arrayObjetos[9].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='higo'>" + higo.nombre + " ---- " + higo.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-            
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "higo"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "higo") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -271,13 +271,13 @@ function sumar(fruta) {
         case "naranja":
             arrayObjetos[10].kilos = arrayObjetos[10].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='naranja'>" + naranja.nombre + " ---- " + naranja.kilos + "</p>"
-            
-            for(i = 0; i < arrayParrafos.length; i++){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
-            
-            for(i = 0; i < arrayParrafos.length; i++){
-                if(arrayParrafos[i].getAttribute("name") == "naranja"){
+
+            for (i = 0; i < arrayParrafos.length; i++) {
+                if (arrayParrafos[i].getAttribute("name") == "naranja") {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
@@ -287,13 +287,15 @@ function sumar(fruta) {
 }
 
 function mostrarResumen() {
-    let textarea = document.getElementById("resumen");
+    //let textarea = document.getElementById("resumen");
     let fecha = document.createTextNode(new Date() + "\n\n");
     let resumen = document.createTextNode(resumir());
     let precioTotal = document.createTextNode(precioGeneral() + "\n\n");
-    textarea.appendChild(fecha);
-    textarea.appendChild(resumen);
-    textarea.appendChild(precioTotal);
+    //textarea.appendChild(fecha);
+    //textarea.appendChild(resumen);
+    //textarea.appendChild(precioTotal);
+
+    return fecha + resumen + precioTotal;
 
 }
 
@@ -328,7 +330,7 @@ function precioGeneral() {
 
     precioTotal = 0;
     for (i = 0; i < arrayObjetos.length; i++) {
-        if(arrayObjetos[i].kilos > 0){
+        if (arrayObjetos[i].kilos > 0) {
             precioTotal = precioTotal + (arrayObjetos[i].precio * arrayObjetos[i].kilos);
         }
     }
