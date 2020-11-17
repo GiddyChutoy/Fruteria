@@ -1,6 +1,9 @@
 window.onload = () => {
     let boton1 = document.getElementById("botonVolver");
     let boton2 = document.getElementById("botonTerminar");
+    
+    let abridor = window.opener;
+    document.getElementById("elElegido").innerHTML = abridor.mostrarResumen();
 
     boton1.addEventListener("click", (event) => {
         window.close();

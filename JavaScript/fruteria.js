@@ -2,7 +2,29 @@
 //var arrayNombres = ["Plátano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana", "Pera", "Naranja", "Melocotón", "Kiwi", "Higo"]
 //var arrayPrecios = [1, 0.70, 0.60, 0.90, 2.30, 0.80, 1.80, 1.70, 1.30, 1.40, 1.50]
 
+
 //Eventos
+window.onload = () => {
+    let pedir = document.getElementById("realizarPedido");
+    let borrarform = document.getElementById("borrarForm");
+    let frutas = document.getElementsByTagName("img");
+
+    pedir.addEventListener("click", abrirVentana, false);
+    borrarform.addEventListener("click", borrarFormulario, false);
+
+    frutas[0].addEventListener("click", sumar.bind("platano"), false);
+    frutas[1].addEventListener("click", sumar.bind("manzana"), false);
+    frutas[2].addEventListener("click", sumar.bind("uvas"), false);
+    frutas[3].addEventListener("click", sumar.bind("melocoton"), false);
+    frutas[4].addEventListener("click", sumar.bind("pera"), false);
+    frutas[5].addEventListener("click", sumar.bind("paraguaya"), false);
+    frutas[6].addEventListener("click", sumar.bind("piña"), false);
+    frutas[7].addEventListener("click", sumar.bind("kiwi"), false);
+    frutas[8].addEventListener("click", sumar.bind("cerezas"), false);
+    frutas[9].addEventListener("click", sumar.bind("higo"), false);
+    frutas[10].addEventListener("click", sumar.bind("naranja"), false);
+}
+
 
 //Aquí van las clases de las frutas de temporada y la clase padre fruta
 
@@ -32,6 +54,33 @@ class invierno extends fruta {
     }
 }
 
+//Función para borrar el formulario
+function borrarFormulario() {
+    let campos = document.getElementsByClassName("datos");
+    let radios = document.getElementsByClassName("radio");
+    for (i = 0; i < campos.length; i++) {
+        campos[i].value = null;
+    }
+
+    for (y = 0; y < radios.length; y++) {
+        radios[y].checked = false;
+    }
+}
+
+//Funcion que comprueba si existe tarjeta cliente
+function tarjetaCliente() {
+    let tarjeta = document.getElementById("tarjetasi");
+
+    if (tarjeta.checked) {
+        let fieldset = document.getElementById("fieldset");
+        let label = document.createElement("label")
+        label.innerHTML = "Introduce el codigo cliente: "
+        let input = document.createElement("input[type='text']")
+        fieldset.appendChild(label);
+        fieldset.appendChild(input);
+    }
+}
+
 //Comprobaciones
 function camposLLenos() {
     let inputsForm = document.getElementsByClassName("datos");
@@ -47,7 +96,7 @@ function camposLLenos() {
 
 //Funcion que abre la ventana de confirmacion
 function abrirVentana() {
-    window.open("../HTML/emergente.html", "emergente", "width=500px")
+    window.open("../HTML/emergente.html", "emergente", "width=500px height=300px");
 }
 
 //Funciones para las frutas de verano e invierno. Spoiler: No sirven para nada
@@ -99,49 +148,19 @@ function contenido() {
     }
 }
 
-//Función para borrar el formulario
-function borrarFormulario() {
-    let campos = document.getElementsByClassName("datos");
-    let radios = document.getElementsByClassName("radio");
-    for (i = 0; i < campos.length; i++) {
-        campos[i].value = null;
-    }
-
-    for (y = 0; y < radios.length; y++) {
-        radios[y].checked = false;
-    }
-}
-
-//Funcion que comprueba si existe tarjeta cliente
-function tarjetaCliente() {
-    let tarjeta = document.getElementById("tarjetasi");
-
-    if (tarjeta.checked) {
-        let fieldset = document.getElementById("fieldset");
-        let label = document.createElement("label")
-        label.innerHTML = "Introduce el codigo cliente: "
-        let input = document.createElement("input[type='text']")
-        fieldset.appendChild(label);
-        fieldset.appendChild(input);
-    }
-}
-
-//Función realizar pedido
-
-function realizarPedido() {
-    window.open("/emergente.html", "pop-up", "width=500px height=300px");
-}
-
 //Sumar los kilos de los objetos cuando se pulsa la imagen de la fruta
 //Ademas se encarga de señalar las veces que has repetido la misma fruta
 function sumar(fruta) {
     //let kilos = prompt("¿cuántos Kilos quieres?");
+    fruta = this.toString();
     let arrayParrafos = document.getElementById("compra").getElementsByTagName("p");
     let kilos = document.getElementById(fruta).value
     kilos = Number(kilos)
     let copia = kilos;
 
     copia = Math.round(copia)
+
+    
 
     if (kilos !== copia) {
         return alert("Debes introducir un número entero");
@@ -318,9 +337,9 @@ function sumar(fruta) {
 
 function mostrarResumen() {
     //let textarea = document.getElementById("resumen");
-    let fecha = document.createTextNode(new Date() + "\n\n");
-    let resumen = document.createTextNode(resumir());
-    let precioTotal = document.createTextNode(precioGeneral() + "\n\n");
+    let fecha = new Date();
+    let resumen = resumir();
+    let precioTotal = precioGeneral();
     //textarea.appendChild(fecha);
     //textarea.appendChild(resumen);
     //textarea.appendChild(precioTotal);
@@ -334,7 +353,7 @@ function resumir() {
     let resumen = new Array();
     let final;
     for (i = 0; i < arrayObjetos.length; i++) {
-        resumen[i] = arrayObjetos[i].nombre + " ------ " + arrayObjetos[i].kilos + "Kg" + " ------ " + Number(arrayObjetos[i].precio).toFixed(2) + "€ " + " ------ " + Number(arrayObjetos[i].precio * arrayObjetos[i].kilos).toFixed(2) + "€";
+        resumen[i] = "<p>" + arrayObjetos[i].nombre + " ------ " + arrayObjetos[i].kilos + "Kg" + " ------ " + Number(arrayObjetos[i].precio).toFixed(2) + "€ " + " ------ " + Number(arrayObjetos[i].precio * arrayObjetos[i].kilos).toFixed(2) + "€</p>";
         resumen.sort(function(elem1, elem2) {
             if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase()) {
                 return -1;
@@ -365,5 +384,5 @@ function precioGeneral() {
         }
     }
 
-    return "\n\nPrecio total: " + Number(Math.floor(precioTotal)).toFixed(2) + " €\nPrecio medio: " + Number(precioTotal / pesoTotal).toFixed(3) + " €/Kg";
+    return "\n\nPrecio total: " + parseFloat(Math.floor(precioTotal)).toFixed(2) + " €\nPrecio medio: " + parseFloat(precioTotal /pesoTotal).toFixed(3) + " €/Kg";
 }
