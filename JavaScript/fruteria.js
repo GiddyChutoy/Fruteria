@@ -2,6 +2,8 @@
 //var arrayNombres = ["Plátano", "Cereza", "Uva", "Piña", "Paraguaya", "Manzana", "Pera", "Naranja", "Melocotón", "Kiwi", "Higo"]
 //var arrayPrecios = [1, 0.70, 0.60, 0.90, 2.30, 0.80, 1.80, 1.70, 1.30, 1.40, 1.50]
 
+//Eventos
+
 //Aquí van las clases de las frutas de temporada y la clase padre fruta
 
 //Esta es la clase padre
@@ -30,9 +32,26 @@ class invierno extends fruta {
     }
 }
 
-//Funciones para las frutas de verano e invierno
+//Comprobaciones
+function camposLLenos() {
+    let inputsForm = document.getElementsByClassName("datos");
+    for (i = 0; i < inputsForm.length; i++) {
+        if (inputsForm[i].value == null) {
+            alert("Debes rellenar todos los campos");
+        } else {
+            return true;
+        }
+    }
+}
+
+
+//Funcion que abre la ventana de confirmacion
+function abrirVentana() {
+    window.open("../HTML/emergente.html", "emergente", "width=500px")
+}
+
+//Funciones para las frutas de verano e invierno. Spoiler: No sirven para nada
 function getVerano() {
-    let ventana = window.open("", "verano", "width=500px")
     for (i = 0; i < arrayObjetos.length; i++) {
         if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].proximidad) {
             ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son fruta de verano, de " + arrayObjetos[i].proximidad + " y están recogidas en " + arrayObjetos[i].region + ".<br>")
@@ -41,7 +60,6 @@ function getVerano() {
 }
 
 function getInvierno() {
-    let ventana = window.open("", "verano", "width=500px")
     for (i = 0; i < arrayObjetos.length; i++) {
         if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].nevera) {
             ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.<br>")
@@ -95,6 +113,18 @@ function borrarFormulario() {
 }
 
 //Funcion que comprueba si existe tarjeta cliente
+function tarjetaCliente() {
+    let tarjeta = document.getElementById("tarjetasi");
+
+    if (tarjeta.checked) {
+        let fieldset = document.getElementById("fieldset");
+        let label = document.createElement("label")
+        label.innerHTML = "Introduce el codigo cliente: "
+        let input = document.createElement("input[type='text']")
+        fieldset.appendChild(label);
+        fieldset.appendChild(input);
+    }
+}
 
 //Función realizar pedido
 

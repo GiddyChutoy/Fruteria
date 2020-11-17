@@ -15,86 +15,97 @@
             <h1>Fruteria</h1>
             <div class="fruta">
                 <h3>Platano</h3>
-                <img src="..\imagenes\platanos.jpg" alt="platano" onclick="sumar('platano');">
+                <img src="..\imagenes\platanos.jpg" alt="platano" class="fruta" onclick="sumar('platano');">
                 <p>1 Kg: <strong>1€</strong></p>
                 <input type="text" id="platano">
+                <span class="tooltiptext">barras</span>
             </div>
 
             <div class="fruta">
                 <h3>Manzana</h3>
-                <img src="..\imagenes\manzana.jpg" alt="manzana" onclick="sumar('manzana')">
+                <img src="..\imagenes\manzana.jpg" alt="manzana" class="fruta" onclick="sumar('manzana')">
                 <p>1 Kg: <strong>0,80€</strong></p>
                 <input type="text" id="manzana">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Uvas</h3>
-                <img src="..\imagenes\uvas.jpg" alt="uvas" onclick="sumar('uvas')">
+                <img src="..\imagenes\uvas.jpg" alt="uvas" class="fruta" onclick="sumar('uvas')">
                 <p>1 Kg: <strong>0,60€</strong></p>
                 <input type="text" id="uvas">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Melocotón</h3>
-                <img src="..\imagenes\melocoton.jpg" alt="melocoton" onclick="sumar('melocoton')">
+                <img src="..\imagenes\melocoton.jpg" alt="melocoton" class="fruta" onclick="sumar('melocoton')">
                 <p>1 Kg: <strong>1,30€</strong></p>
                 <input type="text" id="melocoton">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Pera</h3>
-                <img src="..\imagenes\pera.jpg" alt="pera" onclick="sumar('pera')">
+                <img src="..\imagenes\pera.jpg" alt="pera" class="fruta" onclick="sumar('pera')">
                 <p>1 Kg: <strong>1,80€</strong></p>
                 <input type="text" id="pera">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Paraguaya</h3>
-                <img src="..\imagenes\paraguaya.jpg" alt="paraguaya" onclick="sumar('paraguaya')">
+                <img src="..\imagenes\paraguaya.jpg" alt="paraguaya" class="fruta" onclick="sumar('paraguaya')">
                 <p>1 Kg: <strong>2,30€</strong></p>
                 <input type="text" id="paraguaya">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Piña</h3>
-                <img src="..\imagenes\piña.jpg" alt="piña" onclick="sumar('piña')">
+                <img src="..\imagenes\piña.jpg" alt="piña" class="fruta" onclick="sumar('piña')">
                 <p>1 Kg: <strong>0,90€</strong></p>
                 <input type="text" id="piña">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Kiwi</h3>
-                <img src="..\imagenes\kiwi.jpg" alt="kiwi" onclick="sumar('kiwi')">
+                <img src="..\imagenes\kiwi.jpg" alt="kiwi" class="fruta" onclick="sumar('kiwi')">
                 <p>1 Kg: <strong>1,40€</strong></p>
                 <input type="text" id="kiwi">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Cereza</h3>
-                <img src="..\imagenes\cerezas.jpg" alt="cerezas" onclick="sumar('cerezas')">
+                <img src="..\imagenes\cerezas.jpg" alt="cerezas" class="fruta" onclick="sumar('cerezas')">
                 <p>1 Kg: <strong>0,70€</strong></p>
                 <input type="text" id="cerezas">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Higo</h3>
-                <img src="..\imagenes\higo.jpg" alt="higo" onclick="sumar('higo')">
+                <img src="..\imagenes\higo.jpg" alt="higo" class="fruta" onclick="sumar('higo')">
                 <p>1 Kg: <strong>1,50€</strong></p>
                 <input type="text" id="higo">
+                <span class="tooltiptext"></span>
             </div>
 
             <div class="fruta">
                 <h3>Naranja</h3>
-                <img src="..\imagenes\naranja.jpg" alt="naranja" onclick="sumar('naranja')">
+                <img src="..\imagenes\naranja.jpg" alt="naranja" class="fruta" onclick="sumar('naranja')">
                 <p>1 Kg: <strong>1,70€</strong></p>
                 <input type="text" id="naranja">
+                <span class="tooltiptext"></span>
             </div>
             <br><br>
             <hr>
             <br>
 
-            <form action="" method="post">
-                <fieldset>
+            <form action="" method="post" id="form1">
+                <fieldset id="fieldset">
                     <legend>Datos</legend>
                     <label for="nombre">Nombre: </label>
                     <input type="text" name="nombre" class="datos">
@@ -119,15 +130,17 @@
                     <br><br>
 
                     <label for="tarjetacliente">Tarjeta cliente: </label>
-                    <label for="tarjetacliente">Sí</label><input type="radio" name="tarjetacliente" class="radio">
+                    <label for="tarjetacliente">Sí</label><input type="radio" id="tarjetasi" name="tarjetacliente" class="radio">
                     <label for="tarjetacliente">No</label><input type="radio" name="tarjetacliente" class="radio">
 
                     <br><br>
 
-                    <input type="submit" value="Realizar pedido" onclick="realizarPedido(); getVerano(); getInvierno(); borrar();">
-                    <input type="button" value="Borrar formulario" onclick="borrarFormulario()">
+
 
                 </fieldset>
+
+                <input type="submit" value="Realizar pedido" onclick="realizarPedido(); borrar();" id="realizarPedido">
+                <input type="button" value="Borrar formulario" onclick="borrarFormulario()" id="borrarFormulario">
             </form>
 
             <!--<button onclick="mostrarResumen(); getVerano(); getInvierno(); borrar();" name="resumen" id="resumen">Finalizar
