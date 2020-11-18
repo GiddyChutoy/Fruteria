@@ -2,6 +2,15 @@
     float: left;
     text-align: center;
     width: 73%;
+    height: 600px;
+    float: left;
+}
+
+#formulario {
+    width: 100%;
+    margin: auto;
+    clear: left;
+    text-align: center;
 }
 
 .fruta {
@@ -15,6 +24,9 @@ img {
 #compra {
     float: right;
     width: 25%;
+    height: 600px;
+    scrollbar-width: auto;
+    overflow: scroll;
 }
 
 fieldset {
@@ -45,7 +57,7 @@ fieldset label {
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 100%;
     left: 50%;
     margin-left: -60px;
     opacity: 0;

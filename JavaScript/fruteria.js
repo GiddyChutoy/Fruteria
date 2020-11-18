@@ -9,6 +9,11 @@ window.onload = () => {
     let borrarform = document.getElementById("borrarForm");
     let frutas = document.getElementsByTagName("img");
 
+    let i = 0;
+    while (i < arrayObjetos.length) {
+        frutas[i].addEventListener("mouseover", frutaTemporada, false);
+        i++;
+    }
     borrarform.addEventListener("click", borrarFormulario, false);
 
     frutas[0].addEventListener("click", sumar.bind("platano"), false);
@@ -45,6 +50,17 @@ class verano extends fruta {
         this.proximidad = proximidad;
         this.region = region;
     }
+
+    getEstacion() {
+        return "El/La " + this.nombre + " es una fruta de " + this.proximidad + ", traida desde " + this.region;
+    }
+
+}
+
+//Scroll de la compra
+function scroll() {
+    let compra = document.getElementById("compra");
+    compra.scrollIntoView
 }
 
 //Esta es la clase hija "invierno" que tendrá una nueva propiedad
@@ -52,6 +68,10 @@ class invierno extends fruta {
     constructor(nombre, kilos, precio, nevera) {
         super(nombre, kilos, precio);
         this.nevera = nevera;
+    }
+
+    getEstacion() {
+        return "El/La " + this.nombre + " es una fruta que es mejor dejarla " + this.nevera + " de la nevera."
     }
 }
 
@@ -110,22 +130,15 @@ function abrirVentana() {
     window.open("../HTML/emergente.html", "emergente", "width=500px height=300px");
 }
 
-//Funciones para las frutas de verano e invierno. Spoiler: No sirven para nada
-function getVerano() {
-    /*for (i = 0; i < arrayObjetos.length; i++) {
-        if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].proximidad) {
-            ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son fruta de verano, de " + arrayObjetos[i].proximidad + " y están recogidas en " + arrayObjetos[i].region + ".<br>")
-        }
-    }*/
+//Funcion para las frutas de verano e invierno.
+function frutaTemporada() {
+    let span = document.getElementsByClassName("tooltiptext");
+
+    for (i = 0; span.length; i++) {
+        span[i].innerHTML = arrayObjetos[i].getEstacion();
+    }
 }
 
-function getInvierno() {
-    /*for (i = 0; i < arrayObjetos.length; i++) {
-        if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].nevera) {
-            ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.<br>")
-        }
-    }*/
-}
 
 //Objetos fruta
 var platano = new verano("Plátano", 0, 1, "lejanía", "Canarias");
@@ -256,7 +269,7 @@ function sumar(fruta) {
         case "paraguaya":
             arrayObjetos[5].kilos = arrayObjetos[5].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='paraguaya'>" + paraguaya.nombre + " ---- " + paraguaya.kilos + "</p>"
-
+            scroll();
             for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
@@ -270,7 +283,7 @@ function sumar(fruta) {
             break;
         case "piña":
             arrayObjetos[6].kilos = arrayObjetos[6].kilos + kilos;
-            document.getElementById("compra").innerHTML += "<p name='piña'>" + piña.nombre + " ---- " + piña.kilos + "</p>"
+            document.getElementById("compra").innerHTML += "<p name='piña'>" + pina.nombre + " ---- " + pina.kilos + "</p>"
 
             for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
@@ -300,7 +313,7 @@ function sumar(fruta) {
             break;
         case "cerezas":
             arrayObjetos[8].kilos = arrayObjetos[8].kilos + kilos;
-            document.getElementById("compra").innerHTML += "<p name='cerezas'>" + cerezas.nombre + " ---- " + cerezas.kilos + "</p>"
+            document.getElementById("compra").innerHTML += "<p name='cerezas'>" + cereza.nombre + " ---- " + cereza.kilos + "</p>"
 
             for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
