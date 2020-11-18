@@ -9,7 +9,6 @@ window.onload = () => {
     let borrarform = document.getElementById("borrarForm");
     let frutas = document.getElementsByTagName("img");
 
-    pedir.addEventListener("click", abrirVentana, false);
     borrarform.addEventListener("click", borrarFormulario, false);
 
     frutas[0].addEventListener("click", sumar.bind("platano"), false);
@@ -23,6 +22,8 @@ window.onload = () => {
     frutas[8].addEventListener("click", sumar.bind("cerezas"), false);
     frutas[9].addEventListener("click", sumar.bind("higo"), false);
     frutas[10].addEventListener("click", sumar.bind("naranja"), false);
+
+    pedir.addEventListener("submit", camposLLenos, false);
 }
 
 
@@ -82,15 +83,25 @@ function tarjetaCliente() {
 }
 
 //Comprobaciones
-function camposLLenos() {
+function camposLLenos(event) {
     let inputsForm = document.getElementsByClassName("datos");
-    for (i = 0; i < inputsForm.length; i++) {
-        if (inputsForm[i].value == null) {
-            alert("Debes rellenar todos los campos");
+    let labelInputs = document.getElementsByTagName("labelDatos");
+    let todobien = false;
+
+    for (i = 0; inputsForm.length; i++) {
+        console.log(inputsForm[i]);
+        if (!inputsForm[i].validity.valid) {
+            labelInputs[i].className = "campoErroneo";
+            event.preventDefault();
         } else {
-            return true;
+            todobien = true;
         }
     }
+
+    if (todobien == true) {
+        abrirVentana();
+    }
+
 }
 
 
@@ -101,19 +112,19 @@ function abrirVentana() {
 
 //Funciones para las frutas de verano e invierno. Spoiler: No sirven para nada
 function getVerano() {
-    for (i = 0; i < arrayObjetos.length; i++) {
+    /*for (i = 0; i < arrayObjetos.length; i++) {
         if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].proximidad) {
             ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son fruta de verano, de " + arrayObjetos[i].proximidad + " y están recogidas en " + arrayObjetos[i].region + ".<br>")
         }
-    }
+    }*/
 }
 
 function getInvierno() {
-    for (i = 0; i < arrayObjetos.length; i++) {
+    /*for (i = 0; i < arrayObjetos.length; i++) {
         if (arrayObjetos[i].kilos > 0 && arrayObjetos[i].nevera) {
             ventana.document.write("Las/Los " + arrayObjetos[i].nombre + " son frutas de inverno y es recomendable conservarlas " + arrayObjetos[i].nevera + " de la nevera.<br>")
         }
-    }
+    }*/
 }
 
 //Objetos fruta
@@ -160,7 +171,7 @@ function sumar(fruta) {
 
     copia = Math.round(copia)
 
-    
+
 
     if (kilos !== copia) {
         return alert("Debes introducir un número entero");
@@ -384,5 +395,5 @@ function precioGeneral() {
         }
     }
 
-    return "\n\nPrecio total: " + parseFloat(Math.floor(precioTotal)).toFixed(2) + " €\nPrecio medio: " + parseFloat(precioTotal /pesoTotal).toFixed(3) + " €/Kg";
+    return "\n\nPrecio total: " + parseFloat(Math.floor(precioTotal)).toFixed(2) + " €\nPrecio medio: " + parseFloat(precioTotal / pesoTotal).toFixed(3) + " €/Kg";
 }

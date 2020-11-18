@@ -67,3 +67,7 @@ fieldset label {
     visibility: visible;
     opacity: 1;
 }
+
+.campoErroneo {
+    color: red;
+}
