@@ -83,3 +83,11 @@ fieldset label {
 .campoErroneo {
     color: red;
 }
+
+.visible{
+    visibility: visible;
+}
+
+.invisible{
+    visibility: hidden;
+}

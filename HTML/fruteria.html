@@ -23,7 +23,7 @@
 
             <div class="fruta">
                 <h3>Manzana</h3>
-                <img src="..\imagenes\manzana.jpg" name="manzana" class="fruta" onclick="sumar('manzana')">
+                <img src="..\imagenes\manzana.jpg" name="manzana" class="fruta">
                 <p>1 Kg: <strong>0,80€</strong></p>
                 <input type="text" id="manzana">
                 <span class="tooltiptext"></span>
@@ -31,7 +31,7 @@
 
             <div class="fruta">
                 <h3>Uvas</h3>
-                <img src="..\imagenes\uvas.jpg" name="uvas" class="fruta" onclick="sumar('uvas')">
+                <img src="..\imagenes\uvas.jpg" name="uvas" class="fruta">
                 <p>1 Kg: <strong>0,60€</strong></p>
                 <input type="text" id="uvas">
                 <span class="tooltiptext"></span>
@@ -39,7 +39,7 @@
 
             <div class="fruta">
                 <h3>Melocotón</h3>
-                <img src="..\imagenes\melocoton.jpg" name="melocoton" class="fruta" onclick="sumar('melocoton')">
+                <img src="..\imagenes\melocoton.jpg" name="melocoton" class="fruta">
                 <p>1 Kg: <strong>1,30€</strong></p>
                 <input type="text" id="melocoton">
                 <span class="tooltiptext"></span>
@@ -47,7 +47,7 @@
 
             <div class="fruta">
                 <h3>Pera</h3>
-                <img src="..\imagenes\pera.jpg" name="pera" class="fruta" onclick="sumar('pera')">
+                <img src="..\imagenes\pera.jpg" name="pera" class="fruta">
                 <p>1 Kg: <strong>1,80€</strong></p>
                 <input type="text" id="pera">
                 <span class="tooltiptext"></span>
@@ -55,7 +55,7 @@
 
             <div class="fruta">
                 <h3>Paraguaya</h3>
-                <img src="..\imagenes\paraguaya.jpg" name="paraguaya" class="fruta" onclick="sumar('paraguaya')">
+                <img src="..\imagenes\paraguaya.jpg" name="paraguaya" class="fruta">
                 <p>1 Kg: <strong>2,30€</strong></p>
                 <input type="text" id="paraguaya">
                 <span class="tooltiptext"></span>
@@ -63,7 +63,7 @@
 
             <div class="fruta">
                 <h3>Piña</h3>
-                <img src="..\imagenes\piña.jpg" name="piña" class="fruta" onclick="sumar('piña')">
+                <img src="..\imagenes\piña.jpg" name="piña" class="fruta">
                 <p>1 Kg: <strong>0,90€</strong></p>
                 <input type="text" id="piña">
                 <span class="tooltiptext"></span>
@@ -71,7 +71,7 @@
 
             <div class="fruta">
                 <h3>Kiwi</h3>
-                <img src="..\imagenes\kiwi.jpg" name="kiwi" class="fruta" onclick="sumar('kiwi')">
+                <img src="..\imagenes\kiwi.jpg" name="kiwi" class="fruta">
                 <p>1 Kg: <strong>1,40€</strong></p>
                 <input type="text" id="kiwi">
                 <span class="tooltiptext"></span>
@@ -79,7 +79,7 @@
 
             <div class="fruta">
                 <h3>Cereza</h3>
-                <img src="..\imagenes\cerezas.jpg" name="cerezas" class="fruta" onclick="sumar('cerezas')">
+                <img src="..\imagenes\cerezas.jpg" name="cerezas" class="fruta">
                 <p>1 Kg: <strong>0,70€</strong></p>
                 <input type="text" id="cerezas">
                 <span class="tooltiptext"></span>
@@ -87,7 +87,7 @@
 
             <div class="fruta">
                 <h3>Higo</h3>
-                <img src="..\imagenes\higo.jpg" name="higo" class="fruta" onclick="sumar('higo')">
+                <img src="..\imagenes\higo.jpg" name="higo" class="fruta">
                 <p>1 Kg: <strong>1,50€</strong></p>
                 <input type="text" id="higo">
                 <span class="tooltiptext"></span>
@@ -95,7 +95,7 @@
 
             <div class="fruta">
                 <h3>Naranja</h3>
-                <img src="..\imagenes\naranja.jpg" name="naranja" class="fruta" onclick="sumar('naranja')">
+                <img src="..\imagenes\naranja.jpg" name="naranja" class="fruta">
                 <p>1 Kg: <strong>1,70€</strong></p>
                 <input type="text" id="naranja">
                 <span class="tooltiptext"></span>
@@ -109,39 +109,40 @@
         <hr>
         <br>
         <div id="formulario">
-            <form id="form1" novalidate>
+            <form id="form1" method="POST" action="" novalidate>
                 <fieldset id="fieldset">
                     <legend>Datos</legend>
-                    <label for="nombre" class="labelDatos">Nombre: </label>
-                    <input type="text" name="nombre" class="datos" required>
+                    <label for="nombre" id="labelNombre">Nombre: </label>
+                    <input type="text" name="nombre" class="datos" id="nombre" required minlength="4" maxlength="15">
 
-                    <label for="apellidos" class="labelDatos">Apellidos: </label>
-                    <input type="text" name="apellidos" class="datos" required>
-
-                    <br><br>
-
-                    <label for="direccion" class="labelDatos">Dirección: </label>
-                    <input type="text" name="direccion" class="datos" required>
-
-                    <label for="email" class="labelDatos">Email: </label>
-                    <input type="email" name="email" id="email" class="datos" required>
+                    <label for="apellidos" id="labelApellidos">Apellidos: </label>
+                    <input type="text" name="apellidos" class="datos" id="apellidos" required>
 
                     <br><br>
 
-                    <label for="tarjeta">Pago con tarjeta: </label>
-                    <label for="tarjeta"> Sí</label> <input type="radio" name="tarjeta" class="radio" required>
-                    <label for="tarjeta"> No</label><input type="radio" name="tarjeta" class="radio" required>
+                    <label for="direccion" id="labelDireccion">Dirección: </label>
+                    <input type="text" name="direccion" class="datos" id="direccion" required>
+
+                    <label for="email" id="labelEmail">Email: </label>
+                    <input type="email" name="email" id="email" class="datos" id="email" required>
 
                     <br><br>
 
-                    <label for="tarjetacliente">Tarjeta cliente: </label>
+                    <label for="tarjeta" id="labelTarjeta">Pago con tarjeta: </label>
+                    <label for="tarjeta"> Sí</label> <input type="radio" name="tarjeta" class="radio" id="contarjeta" required>
+                    <label for="tarjeta"> No</label><input type="radio" name="tarjeta" class="radio" id="sintarjeta" required>
+
+                    <br><br>
+
+                    <label for="tarjetacliente" id="labelCliente">Tarjeta cliente: </label>
                     <label for="tarjetacliente">Sí</label><input type="radio" id="tarjetasi" name="tarjetacliente" class="radio" required>
-                    <label for="tarjetacliente">No</label><input type="radio" name="tarjetacliente" class="radio" required>
+                    <label for="tarjetacliente">No</label><input type="radio" id="tarjetano" name="tarjetacliente" class="radio" required>
 
                     <br><br>
-
-
-
+                    <div class="invisible" id="extra">
+                        <label for="codigo" id="labelOculto">Introduce el código cliente: </label>
+                        <input type="text" name="codigo" id="oculto" required pattern="[A-Za-z]{3}[0-9]{4}[/_.#&]{1}">
+                    </div>
                 </fieldset>
 
                 <input type="submit" value="Realizar pedido" id="realizarPedido">

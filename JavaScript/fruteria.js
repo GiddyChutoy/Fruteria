@@ -6,14 +6,18 @@
 //Eventos
 window.onload = () => {
     let pedir = document.getElementById("realizarPedido");
+    let formulario = document.getElementById("form1");
     let borrarform = document.getElementById("borrarForm");
     let frutas = document.getElementsByTagName("img");
+    let codigo = document.getElementById("tarjetasi");
+    let codigo2 = document.getElementById("tarjetano")
 
     let i = 0;
     while (i < arrayObjetos.length) {
         frutas[i].addEventListener("mouseover", frutaTemporada, false);
         i++;
     }
+
     borrarform.addEventListener("click", borrarFormulario, false);
 
     frutas[0].addEventListener("click", sumar.bind("platano"), false);
@@ -28,7 +32,13 @@ window.onload = () => {
     frutas[9].addEventListener("click", sumar.bind("higo"), false);
     frutas[10].addEventListener("click", sumar.bind("naranja"), false);
 
-    pedir.addEventListener("submit", camposLLenos, false);
+
+    codigo.addEventListener("change", codigoCliente, false);
+    codigo2.addEventListener("change", codigoCliente, false);
+
+    formulario.addEventListener("submit", camposLLenos, false);
+
+
 }
 
 
@@ -57,11 +67,7 @@ class verano extends fruta {
 
 }
 
-//Scroll de la compra
-function scroll() {
-    let compra = document.getElementById("compra");
-    compra.scrollIntoView
-}
+
 
 //Esta es la clase hija "invierno" que tendrá una nueva propiedad
 class invierno extends fruta {
@@ -79,6 +85,8 @@ class invierno extends fruta {
 function borrarFormulario() {
     let campos = document.getElementsByClassName("datos");
     let radios = document.getElementsByClassName("radio");
+    let codigo = document.getElementById("extra");
+
     for (i = 0; i < campos.length; i++) {
         campos[i].value = null;
     }
@@ -86,39 +94,111 @@ function borrarFormulario() {
     for (y = 0; y < radios.length; y++) {
         radios[y].checked = false;
     }
+
+    codigo.className = "invisible";
 }
 
-//Funcion que comprueba si existe tarjeta cliente
-function tarjetaCliente() {
-    let tarjeta = document.getElementById("tarjetasi");
+//Añadir codigo tarjeta
+function codigoCliente() {
+    let codigo = document.getElementById("extra");
+    let afirmativo = document.getElementById("tarjetasi");
+    let negativo = document.getElementById("tarjetano");
 
-    if (tarjeta.checked) {
-        let fieldset = document.getElementById("fieldset");
-        let label = document.createElement("label")
-        label.innerHTML = "Introduce el codigo cliente: "
-        let input = document.createElement("input[type='text']")
-        fieldset.appendChild(label);
-        fieldset.appendChild(input);
+    if (afirmativo.checked) {
+        codigo.className = "visible";
     }
+
+    if (negativo.checked) {
+        codigo.className = "invisible";
+    }
+}
+
+//Scroll de la compra
+function scroll() {
+    let compra = document.getElementById("compra");
+    compra.scrollIntoView(false)
 }
 
 //Comprobaciones
 function camposLLenos(event) {
-    let inputsForm = document.getElementsByClassName("datos");
-    let labelInputs = document.getElementsByTagName("labelDatos");
-    let todobien = false;
+    let nombre = document.getElementById("nombre");
+    let labelNombre = document.getElementById("labelNombre");
+    labelNombre.className = "";
 
-    for (i = 0; inputsForm.length; i++) {
-        console.log(inputsForm[i]);
-        if (!inputsForm[i].validity.valid) {
-            labelInputs[i].className = "campoErroneo";
+    let apellidos = document.getElementById("apellidos");
+    let labelApellidos = document.getElementById("labelApellidos");
+    labelApellidos.className = "";
+
+    let direccion = document.getElementById("direccion");
+    let labelDireccion = document.getElementById("labelDireccion");
+    labelDireccion.className = "";
+
+    let email = document.getElementById("email");
+    let labelEmail = document.getElementById("labelEmail");
+    labelEmail.className = "";
+
+    let pagocontarjetasi = document.getElementById("tarjetasi");
+    let pagocontarjetano = document.getElementById("tarjetano");
+    let labelTarjeta = document.getElementById("labelTarjeta");
+    labelTarjeta.className = "";
+
+    let clientesi = document.getElementById("contarjeta");
+    let clienteno = document.getElementById("sintarjeta");
+    let labelCliente = document.getElementById("labelCliente");
+    labelCliente.className = "";
+
+    let oculto = document.getElementById("oculto")
+    let labelOculto = document.getElementById("labelOculto");
+    labelOculto.className = "";
+
+    let todoCorrecto = true;
+
+    if (!nombre.validity.valid) {
+        todoCorrecto = false;
+        labelNombre.className = "campoErroneo";
+        event.preventDefault();
+    }
+
+    if (!apellidos.validity.valid) {
+        todoCorrecto = false;
+        labelApellidos.className = "campoErroneo";
+        event.preventDefault();
+    }
+
+    if (!direccion.validity.valid) {
+        todoCorrecto = false;
+        labelDireccion.className = "campoErroneo";
+        event.preventDefault();
+    }
+
+    if (!email.validity.valid) {
+        todoCorrecto = false;
+        labelEmail.className = "campoErroneo";
+        event.preventDefault();
+    }
+
+    if (!pagocontarjetasi.checked && !pagocontarjetano.checked) {
+        todoCorrecto = false;
+        labelCliente.className = "campoErroneo";
+        event.preventDefault();
+    }
+
+    if (!clientesi.checked && !clienteno.checked) {
+        todoCorrecto = false;
+        labelTarjeta.className = "campoErroneo";
+        event.preventDefault();
+    }
+
+    if (document.getElementById("extra").className == "visible") {
+        if (!oculto.validity.valid) {
+            todoCorrecto = false;
+            labelOculto.className = "campoErroneo";
             event.preventDefault();
-        } else {
-            todobien = true;
         }
     }
 
-    if (todobien == true) {
+
+    if (todoCorrecto == true) {
         abrirVentana();
     }
 
@@ -205,6 +285,10 @@ function sumar(fruta) {
                 }
             }
 
+            document.getElementById("platano").value = "";
+
+            scroll();
+
             break;
         case "manzana":
             arrayObjetos[1].kilos = arrayObjetos[1].kilos + kilos;
@@ -219,6 +303,10 @@ function sumar(fruta) {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
+
+            document.getElementById("manzana").value = "";
+
+            scroll();
 
             break;
         case "uvas":
@@ -235,6 +323,10 @@ function sumar(fruta) {
                 }
             }
 
+            document.getElementById("uvas").value = "";
+
+            scroll();
+
             break;
         case "melocoton":
             arrayObjetos[3].kilos = arrayObjetos[3].kilos + kilos;
@@ -249,6 +341,10 @@ function sumar(fruta) {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
+
+            document.getElementById("melocoton").value = "";
+
+            scroll();
 
             break;
         case "pera":
@@ -265,11 +361,15 @@ function sumar(fruta) {
                 }
             }
 
+            document.getElementById("pera").value = "";
+
+            scroll();
+
             break;
         case "paraguaya":
             arrayObjetos[5].kilos = arrayObjetos[5].kilos + kilos;
             document.getElementById("compra").innerHTML += "<p name='paraguaya'>" + paraguaya.nombre + " ---- " + paraguaya.kilos + "</p>"
-            scroll();
+
             for (i = 0; i < arrayParrafos.length; i++) {
                 arrayParrafos[i].removeAttribute("style");
             }
@@ -279,6 +379,10 @@ function sumar(fruta) {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
+
+            document.getElementById("paraguaya").value = "";
+
+            scroll();
 
             break;
         case "piña":
@@ -295,6 +399,10 @@ function sumar(fruta) {
                 }
             }
 
+            document.getElementById("piña").value = "";
+
+            scroll();
+
             break;
         case "kiwi":
             arrayObjetos[7].kilos = arrayObjetos[7].kilos + kilos;
@@ -309,6 +417,10 @@ function sumar(fruta) {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
+
+            document.getElementById("kiwi").value = "";
+
+            scroll();
 
             break;
         case "cerezas":
@@ -325,6 +437,10 @@ function sumar(fruta) {
                 }
             }
 
+            document.getElementById("cerezas").value = "";
+
+            scroll();
+
             break;
         case "higo":
             arrayObjetos[9].kilos = arrayObjetos[9].kilos + kilos;
@@ -340,6 +456,10 @@ function sumar(fruta) {
                 }
             }
 
+            document.getElementById("higo").value = "";
+
+            scroll();
+
             break;
         case "naranja":
             arrayObjetos[10].kilos = arrayObjetos[10].kilos + kilos;
@@ -354,6 +474,10 @@ function sumar(fruta) {
                     arrayParrafos[i].style.backgroundColor = "green"
                 }
             }
+
+            document.getElementById("naranja").value = "";
+
+            scroll();
 
             break;
     }
